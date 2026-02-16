@@ -10,6 +10,7 @@ To write a python program to perform stop and wait protocol
 6. Stop the Program
 ## PROGRAM
 ## SERVER:
+```
 import socket
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server.bind(('localhost', 8080))
@@ -32,8 +33,9 @@ while True:
         conn.send(f"ACK{1 - expected_seq}".encode())
 conn.close()
 server.close()
-
+```
 ## CLIENT:
+```
 import socket
 import time
 client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -51,6 +53,7 @@ for frame in frames:
     else:
         print("ACK not correct. Retransmitting...\n")
 client.close()
+```
 ## OUTPUT
 ![WhatsApp Image 2026-02-16 at 08 23 27](https://github.com/user-attachments/assets/5495afde-b057-4715-bdc5-fef052c348ec)
 ![WhatsApp Image 2026-02-16 at 08 23 45](https://github.com/user-attachments/assets/3674574a-71c5-4d93-8db6-85773d13980b)
